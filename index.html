@@ -11,7 +11,7 @@
             }
         </style>
     
-        <title>Moja gra 0.12</title>
+        <title>Moja gra 0.13</title>
     </head>
 
     <body>
@@ -89,7 +89,7 @@
                         alert("Znalazles " + what_is_it);
                         all_markers[i].setMap(null);
                         all_markers.splice(i, 1);
-                        if (what_is_it = weapons) {
+                        if (what_is_it == "weapons") {
                             score = score + 2
                             alert("Twoje punkty: " + score);
                         }
