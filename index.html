@@ -11,13 +11,14 @@
             }
         </style>
     
-        <title>Moja gra 0.4</title>
+        <title>Moja gra 0.5</title>
     </head>
 
     <body>
         <div id="my_map"></div>
         <script>
             var my_map;
+            var old_marker;
             var all_markers = []
             var data = `52.398406 17.062535 hospital.png
                         52.399588 17.064588 zombie.png
@@ -33,7 +34,7 @@
                     });
 
                 var start_pos = new google.maps.LatLng(52.399563, 17.063994);
-                var start_marker = new google.maps.Marker({
+                var old_marker = new google.maps.Marker({
                         position: start_pos,
                         map: my_map,
                         icon: 'player.png'
@@ -66,12 +67,14 @@
 
 
             function set_my_position(position){
+                old_marker.setMap(null);
                 var my_pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
                 var my_marker = new google.maps.Marker({
                         position: my_pos,
                         map: my_map,
                         icon: 'player.png'
                     });
+                old_marker = my_marker;
             }
 
         </script>
