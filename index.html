@@ -32,19 +32,19 @@
                         center: {lat: 52.399563, lng: 17.063994 }
                     });
 
-                var my_pos = new google.maps.LatLng(52.399563, 17.063994);
-                var my_marker = new google.maps.Marker({
-                        position: my_pos,
+                var start_pos = new google.maps.LatLng(52.399563, 17.063994);
+                var start_marker = new google.maps.Marker({
+                        position: start_pos,
                         map: my_map,
                         icon: 'player.png'
                     });
 
-                //if(navigator.geolocation) {
-                //    navigator.geolocation.watchPosition(set_my_position);
-                //}
-                //else {
-                //    alert("W Twojej przegladarce nie dziala geolokalizacja!");
-                //}
+                if(navigator.geolocation) {
+                    navigator.geolocation.watchPosition(set_my_position);
+                }
+                else {
+                    alert("W Twojej przegladarce nie dziala geolokalizacja!");
+                }
 
                 for(var i=0; i < markers.length; i++){
                     var marker_data = markers[i].trim();
@@ -66,13 +66,11 @@
 
 
             function set_my_position(position){
-                //var pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-                var pos = new google.maps.LatLng(52.399563, 17.063994);
-
-                var my_pos = new google.maps.Marker({
-                        position: pos,
+                var my_pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                var my_marker = new google.maps.Marker({
+                        position: my_pos,
                         map: my_map,
-                        icon: player.png
+                        icon: 'player.png'
                     });
             }
 
