@@ -11,7 +11,7 @@
             }
         </style>
     
-        <title>Moja gra 0.13</title>
+        <title>Moja gra wersja: IF</title>
     </head>
 
     <body>
@@ -92,6 +92,25 @@
                         if (what_is_it == "weapons") {
                             score = score + 2
                             alert("Twoje punkty: " + score);
+                        if (what_is_it == "zombie") {
+                            if (score >= 2) {
+                                alert("Pokonałeś zombie!")
+                                alert("Zdobyłeś 3 punkty, ale straciłeś 2.")
+                                score = score + 1
+                            }
+                            if (score < 2) {
+                                alert("Mniam... Dobry mózg")
+                                score = 0
+                                alert("Magicznym sposobem wróciłeś do życia, ale straciłeś wszystkie punkty :(")
+
+                            }
+                        if (what_is_it == "hospital") {
+                            alert("Zdobywasz 4 punkty :)")
+                            score = score + 4
+                        }
+                            
+
+                        }
                         }
 
                     }
