@@ -86,6 +86,7 @@
                         var what_is_it = all_markers[i].getIcon();
                         what_is_it = what_is_it.replace(".png", "");
                         alert("Znalazles " + what_is_it);
+                        all_markers[i].setMap(null);
                     }
                 }
             }
