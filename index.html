@@ -11,7 +11,7 @@
             }
         </style>
     
-        <title>Moja gra wersja: Poprawki</title>
+        <title>Moja gra - wersja: porzadki</title>
     </head>
 
     <body>
@@ -70,7 +70,6 @@
                 }
             }
 
-
             function set_my_position(position){
                 old_marker.setMap(null);
                 var my_pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
@@ -89,39 +88,34 @@
                         alert("Znalazles " + what_is_it);
                         all_markers[i].setMap(null);
                         all_markers.splice(i, 1);
+
                         if (what_is_it == "weapons") {
-                            score = score + 2
-                            alert("Twoje punkty: " + score); 
+                            score = score + 2;
+                            alert("Twoje punkty: " + score);
                         }
+
                         if (what_is_it == "zombie") {
                             if (score >= 2) {
-                                alert("Pokonalel zombie!")
-                                alert("Zdobyles 3 punkty, ale straciles 2.")
-                                score = score + 1
+                                alert("Pokonales zombie!");
+                                alert("Zdobyles 3 punkty, ale straciles 2.");
+                                score = score + 1;
                                 alert("Twoje punkty: " + score);
                             }
+                            else {
+                                alert("Mniam... dobry mozg...");
+                                score = 0;
+                                alert("Magicznym sposobem wroociles do zycia, ale straciles wszystkie punkty :(");
                             }
-                            if (score < 2) {
-                                alert("Mniam... Dobry mozg")
-                                score = 0
-                                alert("Magicznym sposobem wroociles do zycia, ale straciles wszystkie punkty :(")
-                            }
+                        }
 
-                            
                         if (what_is_it == "hospital") {
                             alert("Zdobywasz 4 punkty :)")
                             score = score + 4
                             alert("Twoje punkty: " + score)
-                        }
-                            
-
-                        }
-                        }
-
+                        }        
                     }
-                
-            
-
+                }
+            }
 
         </script>
 
