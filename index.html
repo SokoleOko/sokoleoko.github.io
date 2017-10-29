@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <style>
+            #my_map {
+                height: 100%;
+                width: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;  
+                background-color: grey;
+            }
+        </style>
+    
+        <title>Moja gra</title>
+    </head>
+
+    <body>
+        <div id="my_map"></div>
+        <script>
+            var my_map;
+            var all_markers = []
+            var data = `52.398406 17.062535 hospital.png
+                        52.399588 17.064588 zombie.png
+                        52.400882 17.066220 weapons.png
+                        52.400163 17.061132 weapons.png
+                        52.402127 17.064158 weapons.png`;
+            var markers = data.split("\n");
+
+            function initMap() {
+                my_map = new google.maps.Map(document.getElementById('my_map'), {
+                        zoom: 17,
+                        center: {lat: 52.399563, lng: 17.063994 }
+                    });
+
+                if(navigator.geolocation) {
+                    navigator.geolocation.watchPosition(set_my_position);
+                }
+                else {
+                    alert("W Twojej przegladarce nie dziala geolokalizacja!");
+                }
+
+                for(var i=0; i < markers.length; i++){
+                    var marker_data = markers[i].trim();
+                    marker_data = marker_data.split(" ");
+                    var latitude = marker_data[0];
+                    var longitude = marker_data[1];
+                    var image = marker_data[2];
+
+                    var marker_position = new google.maps.LatLng(latitude, longitude);
+
+                    var marker = new google.maps.Marker({
+                        position: marker_position,
+                        map: my_map,
+                        icon: image
+                    });
+
+                    all_markers.push(marker);
+                }
+            }
+
+
+            function set_my_position(position){
+                var pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+
+                var my_pos = new google.maps.Marker({
+                        position: pos,
+                        map: my_map,
+                        icon: player.png
+                    });
+            }
+
+        </script>
+
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSTRlLE77-w6jf0Ji3w6Hds2EmGBMBk78&callback=initMap">
+        </script>
+    </body>
+</html>
