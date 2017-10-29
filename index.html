@@ -11,7 +11,7 @@
             }
         </style>
     
-        <title>Moja gra 0.6</title>
+        <title>Moja gra 0.7</title>
     </head>
 
     <body>
@@ -24,8 +24,11 @@
                         52.399588 17.064588 zombie.png
                         52.400882 17.066220 weapons.png
                         52.400163 17.061132 weapons.png
-                        52.402127 17.064158 weapons.png`;
+                        52.402127 17.064158 weapons.png
+                        52.404833 17.095649 zombie.png`;
             var markers = data.split("\n");
+            var tolerance = 10;
+
 
             function initMap() {
                 my_map = new google.maps.Map(document.getElementById('my_map'), {
@@ -75,12 +78,21 @@
                         icon: 'player.png'
                     });
                 old_marker = my_marker;
+
+                for(var i=0; i < all_markers.length; i++){
+                    var distance = google.maps.geometry.spherical.computeDistanceBetween(my_pos, all_markers[i].getPosition());
+                    if( distance < tolerance ){
+                        var what_is_it = all_markers[i].getIcon();
+                        what_is_it = what_is_it.replace(".png", "");
+                        alert("Znalazles " + what_is_it);
+                    }
+                }
             }
 
         </script>
 
         <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSTRlLE77-w6jf0Ji3w6Hds2EmGBMBk78&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSTRlLE77-w6jf0Ji3w6Hds2EmGBMBk78&callback=initMap&libraries=geometry">
         </script>
     </body>
 </html>
