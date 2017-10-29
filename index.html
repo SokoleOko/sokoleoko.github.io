@@ -1,4 +1,4 @@
-<html>
+﻿<html>
     <head>
         <style>
             #my_map {
@@ -7,11 +7,11 @@
                 left: 0;
                 position: absolute;
                 top: 0;  
-                background-color: grey;
+                background-color: rgb(128, 128, 128);
             }
         </style>
     
-        <title>Moja gra wersja: IF</title>
+        <title>Moja gra wersja: Poprawki</title>
     </head>
 
     <body>
@@ -91,20 +91,23 @@
                         all_markers.splice(i, 1);
                         if (what_is_it == "weapons") {
                             score = score + 2
-                            alert("Twoje punkty: " + score);
+                            alert("Twoje punkty: " + score); 
+                        }
                         if (what_is_it == "zombie") {
                             if (score >= 2) {
-                                alert("Pokonałeś zombie!")
-                                alert("Zdobyłeś 3 punkty, ale straciłeś 2.")
+                                alert("Pokonalel zombie!")
+                                alert("Zdobyles 3 punkty, ale straciles 2.")
                                 score = score + 1
-                                alert("Twoje punkty: " + score)
+                                alert("Twoje punkty: " + score);
+                            }
                             }
                             if (score < 2) {
-                                alert("Mniam... Dobry mózg")
+                                alert("Mniam... Dobry mozg")
                                 score = 0
-                                alert("Magicznym sposobem wróciłeś do życia, ale straciłeś wszystkie punkty :(")
-
+                                alert("Magicznym sposobem wroociles do zycia, ale straciles wszystkie punkty :(")
                             }
+
+                            
                         if (what_is_it == "hospital") {
                             alert("Zdobywasz 4 punkty :)")
                             score = score + 4
@@ -116,8 +119,8 @@
                         }
 
                     }
-                }
-            }
+                
+            
 
 
         </script>
